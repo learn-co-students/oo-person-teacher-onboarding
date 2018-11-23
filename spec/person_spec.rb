@@ -21,8 +21,8 @@ RSpec.describe "Person" do
         end
 
         it "a new person instance cannot overwrite the name it was instantied with" do
-          name_hash.each do |person, name|
-            expect {person.name = "some_new_name"}.to raise_error
+          people.each do |person|
+            expect(person.respond_to?(:name=)).to be false
           end
         end
       end
